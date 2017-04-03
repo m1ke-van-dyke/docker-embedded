@@ -9,5 +9,6 @@ RUN apt-get update && \
                         gcc-arm-none-eabi  \
                         qemu-user \
                         gcovr \
+                        indent \
                     && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
