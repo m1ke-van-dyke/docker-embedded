@@ -6,11 +6,10 @@ RUN apt-get update && \
                         cmake  \
                         gcc \
                         python \
-                        python-protobuf protobuf-compiler \
-                        curl \
-                        wget \
                         gcc-arm-none-eabi  \
                         qemu-user \
                         gcovr \
+                        wget \
+                        curl \
                     && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
