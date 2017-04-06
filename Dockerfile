@@ -8,6 +8,7 @@ RUN apt-get update && \
                         python \
                         python-protobuf protobuf-compiler \
                         curl \
+                        wget \
                         gcc-arm-none-eabi  \
                         qemu-user \
                         gcovr \
