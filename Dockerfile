@@ -18,4 +18,4 @@ RUN mkdir ~/aarch64-toolchain && \
     wget -q https://releases.linaro.org/components/toolchain/binaries/latest/aarch64-elf/gcc-linaro-6.3.1-2017.02-x86_64_aarch64-elf.tar.xz && \
     tar xf gcc-linaro-6.3.1-2017.02-x86_64_aarch64-elf.tar.xz
     
-ENV PATH "$PATH:~/aarch64-toolchain/gcc-linaro-6.3.1-2017.02-x86_64_aarch64-elf/bin"
+ENV PATH "$PATH:root/aarch64-toolchain/gcc-linaro-6.3.1-2017.02-x86_64_aarch64-elf/bin"
