@@ -15,7 +15,6 @@ RUN apt-get update && \
     
 WORKDIR ~/aarch64-toolchain
 RUN wget -q https://releases.linaro.org/components/toolchain/binaries/latest/aarch64-elf/gcc-linaro-6.3.1-2017.02-x86_64_aarch64-elf.tar.xz && \
-    ls -l
-ADD ~/aarch64-toolchain/gcc-linaro-6.3.1-2017.02-x86_64_aarch64-elf.tar.xz ~/arm64-toolchain
+    tar xf gcc-linaro-6.3.1-2017.02-x86_64_aarch64-elf.tar.xz
     
 ENV PATH "$PATH:~/arm64-toolchain/gcc-linaro-6.3.1-2017.02-x86_64_aarch64-elf/bin"
