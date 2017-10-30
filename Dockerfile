@@ -7,6 +7,7 @@ RUN apt-get update && \
                         gcc \
                         python \
                         gcc-arm-none-eabi  \
+                        libnewlib-arm-none-eabi \
                         qemu-system-arm \
                         gcovr \
                         wget \
