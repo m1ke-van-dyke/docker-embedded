@@ -15,8 +15,8 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
 WORKDIR home/tools/aarch64-toolchain
-RUN wget -q https://releases.linaro.org/components/toolchain/binaries/latest/aarch64-elf/gcc-linaro-6.3.1-2017.02-x86_64_aarch64-elf.tar.xz && \
-    tar xf gcc-linaro-6.3.1-2017.02-x86_64_aarch64-elf.tar.xz && \
-    rm -f gcc-linaro-6.3.1-2017.02-x86_64_aarch64-elf.tar.xz
+RUN wget -q https://releases.linaro.org/components/toolchain/binaries/7.1-2017.08/aarch64-elf/gcc-linaro-7.1.1-2017.08-x86_64_aarch64-elf.tar.xz && \
+    tar xf gcc-linaro-7.1.1-2017.08-x86_64_aarch64-elf.tar.xz && \
+    rm -f gcc-linaro-7.1.1-2017.08-x86_64_aarch64-elf.tar.xz
     
 ENV PATH "$PATH:/home/tools/aarch64-toolchain/gcc-linaro-6.3.1-2017.02-x86_64_aarch64-elf/bin"
