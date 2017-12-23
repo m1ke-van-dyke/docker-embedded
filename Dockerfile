@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:stretch
 
 RUN apt-get update && \
     apt-get install -y build-essential \
@@ -18,5 +18,8 @@ WORKDIR home/tools/aarch64-toolchain
 RUN wget -q https://releases.linaro.org/components/toolchain/binaries/7.1-2017.08/aarch64-elf/gcc-linaro-7.1.1-2017.08-x86_64_aarch64-elf.tar.xz && \
     tar xf gcc-linaro-7.1.1-2017.08-x86_64_aarch64-elf.tar.xz && \
     rm -f gcc-linaro-7.1.1-2017.08-x86_64_aarch64-elf.tar.xz
+    
+RUN wget -q https://github.com/bazelbuild/bazel/releases/download/0.9.0/bazel_0.9.0-linux-x86_64.deb && \
+    dpkg -i bazel_0.9.0-linux-x86_64.deb
     
 ENV PATH "$PATH:/home/tools/aarch64-toolchain/gcc-linaro-6.3.1-2017.02-x86_64_aarch64-elf/bin"
