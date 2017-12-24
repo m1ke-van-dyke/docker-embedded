@@ -11,6 +11,8 @@ RUN apt-get update && \
                         qemu-system-arm \
                         gcovr \
                         wget \
+                        openjdk-8-jdk \
+                        unzip \
                     && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
@@ -20,9 +22,9 @@ RUN wget -q https://releases.linaro.org/components/toolchain/binaries/7.1-2017.0
     rm -f gcc-linaro-7.1.1-2017.08-x86_64_aarch64-elf.tar.xz
 
 WORKDIR home/tools/bazel
-RUN wget -q https://github.com/bazelbuild/bazel/releases/download/0.9.0/bazel_0.9.0-linux-x86_64.deb && \
-    dpkg -i bazel_0.9.0-linux-x86_64.deb && \
-    apt-get install -f && \
-    rm -f bazel_0.9.0-linux-x86_64.deb
+RUN wget -q https://github.com/bazelbuild/bazel/releases/download/0.9.0/bazel-0.9.0-dist.zip && \
+    unzip bazel-0.9.0-dist.zip -d . && \
+    bash ./compile.sh && \
+    rm -f bazel-0.9.0-dist.zip
     
-ENV PATH "$PATH:/home/tools/aarch64-toolchain/gcc-linaro-6.3.1-2017.02-x86_64_aarch64-elf/bin"
+ENV PATH "$PATH:home/tools/bazel/output:/home/tools/aarch64-toolchain/gcc-linaro-6.3.1-2017.02-x86_64_aarch64-elf/bin"
