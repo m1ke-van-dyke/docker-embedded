@@ -13,6 +13,9 @@ RUN apt-get update && \
                         wget \
                         openjdk-8-jdk \
                         unzip \
+                        zip \
+                        pkg-config \
+                        zlib1g-dev \
                     && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
@@ -22,9 +25,9 @@ RUN wget -q https://releases.linaro.org/components/toolchain/binaries/7.1-2017.0
     rm -f gcc-linaro-7.1.1-2017.08-x86_64_aarch64-elf.tar.xz
 
 WORKDIR home/tools/bazel
-RUN wget -q https://github.com/bazelbuild/bazel/releases/download/0.9.0/bazel-0.9.0-dist.zip && \
-    unzip bazel-0.9.0-dist.zip -d . && \
-    bash ./compile.sh && \
-    rm -f bazel-0.9.0-dist.zip
+RUN wget -q https://github.com/bazelbuild/bazel/releases/download/0.9.0/bazel-0.9.0-installer-linux-x86_64.sh && \
+    chmod +x bazel-0.9.0-installer-linux-x86_64.sh && \
+    ./bazel-0.9.0-installer-linux-x86_64.sh --user && \
+    rm -f bazel-0.9.0-installer-linux-x86_64.sh
     
-ENV PATH "$PATH:home/tools/bazel/output:/home/tools/aarch64-toolchain/gcc-linaro-6.3.1-2017.02-x86_64_aarch64-elf/bin"
+ENV PATH "$PATH:$HOME/bin:/home/tools/aarch64-toolchain/gcc-linaro-6.3.1-2017.02-x86_64_aarch64-elf/bin"
