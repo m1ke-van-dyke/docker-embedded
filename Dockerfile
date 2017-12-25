@@ -27,7 +27,7 @@ RUN wget -q https://releases.linaro.org/components/toolchain/binaries/7.1-2017.0
 WORKDIR home/tools/bazel
 RUN wget -q https://github.com/bazelbuild/bazel/releases/download/0.9.0/bazel-0.9.0-installer-linux-x86_64.sh && \
     chmod +x bazel-0.9.0-installer-linux-x86_64.sh && \
-    ./bazel-0.9.0-installer-linux-x86_64.sh --user && \
+    ./bazel-0.9.0-installer-linux-x86_64.sh && \
     rm -f bazel-0.9.0-installer-linux-x86_64.sh
     
 ENV PATH "$PATH:$HOME/bin:/home/tools/aarch64-toolchain/gcc-linaro-6.3.1-2017.02-x86_64_aarch64-elf/bin"
